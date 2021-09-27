@@ -62,7 +62,7 @@ public class FolderComparator {
         System.out.println("-----------------------------");
         if (iguales == folderAList.size() && iguales == folderBList.size() && salida.contains("Son iguales")) {
             System.out.println("Los directorios son iguales, tienen en común:");
-            System.out.println(salida);
+            System.out.println(salida + "");
         } else {
             System.out.println("No son iguales");
         }
