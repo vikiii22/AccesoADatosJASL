@@ -14,11 +14,13 @@ public class EjercicioFile3 {
                 "5. Eliminar");
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce una ruta: ");
-        String rutaAnyadida = sc.nextLine();
-        File ruta = new File(rutaAnyadida);
         System.out.print("Elige una opción del menú: ");
         int elegido = sc.nextInt();
+
+        System.out.print("Introduce una ruta: ");
+        sc.nextLine();
+        String rutaAnyadida = sc.nextLine();
+        File ruta = new File(rutaAnyadida);
 
 
         switch (elegido) {
@@ -51,9 +53,16 @@ public class EjercicioFile3 {
                 ruta.createNewFile();
                 break;
             case 4:
+                //No me ha dado tiempo
                 break;
             case 5:
-                ruta.delete();
+                System.out.println("Está seguro de que desea elimnar " + ruta.getName() + "?");
+                String seguro = sc.nextLine();
+                if (seguro.equals("Si") || seguro.equals("si")) {
+                    ruta.delete();
+                } else {
+                    break;
+                }
                 break;
             default:
                 System.out.println("Error");
