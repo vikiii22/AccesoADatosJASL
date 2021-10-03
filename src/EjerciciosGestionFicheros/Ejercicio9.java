@@ -9,17 +9,18 @@ public class Ejercicio9 {
     }
 
     private static void crearFichero() throws IOException {
-        File file = new File("ejericio9.dat");
+        File file = new File("BinaryFile.dat");
         try {
             FileOutputStream dir = new FileOutputStream(file);
             DataOutputStream salida = new DataOutputStream(dir);
-            String[] titulos = {"Les tenebres i l'alba", "El Quixot de la Manxa", "El Senyor dels Anells", "El petit Princep"};
+
+            String titulos[] = {"Les tenebres i l'alba", "El Quixot de la Manxa", "El Senyor dels Anells", "El petit Princep"};
             int anyoPublicacion[] = {2020, 1605, 1954, 1943};
+
             for (int i = 0; i < titulos.length; i++) {
-                for (int j = 0; j < anyoPublicacion.length; j++) {
-                    salida.writeChars(titulos[i]);
-                    salida.writeInt(anyoPublicacion[j]);
-                }
+                salida.writeUTF(titulos[i]);
+                salida.writeInt(anyoPublicacion[i]);
+                salida.writeChars("\n");
             }
             salida.close();
         } catch (FileNotFoundException e) {
@@ -28,14 +29,21 @@ public class Ejercicio9 {
     }
 
     private static void leerFichero() {
-        File file = new File("ejericio9.dat");
+        File file = new File("BinaryFile.dat");
         String libros;
+        int anyo;
         try {
-            FileInputStream dir=new FileInputStream(file);
-            DataInputStream salida=new DataInputStream(dir);
+            DataInputStream salida = new DataInputStream(new FileInputStream(file));
+            while ((libros=salida.readUTF())!=null) {
+                //libros=salida.readUTF();
+                anyo = salida.readInt();
+                salida.readChar();
+                System.out.println(libros + " " + anyo);
+            }
+            salida.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
         }
     }
 }
