@@ -35,7 +35,6 @@ public class Ejercicio9 {
         try {
             DataInputStream salida = new DataInputStream(new FileInputStream(file));
             while ((libros=salida.readUTF())!=null) {
-                //libros=salida.readUTF();
                 anyo = salida.readInt();
                 salida.readChar();
                 System.out.println(libros + " " + anyo);
