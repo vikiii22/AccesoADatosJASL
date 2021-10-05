@@ -10,12 +10,11 @@ public class Ejercicio10 {
 
     private static void escribirObjeto() {
         Book libro = new Book("libro 1", "Santillana", 2015);
-
         try {
             FileOutputStream file = new FileOutputStream("BookFile.dat");
             ObjectOutputStream ous = new ObjectOutputStream(file);
-            for (int i = 0; i < libro.toString().length(); i++) {
-                ous.writeObject(libro+"\n");
+            for (int i = 0; i < 5; i++) {
+                ous.writeObject(libro.editorial + " " + libro.nombre + " " + libro.fecha + "\n");
             }
             ous.close();
         } catch (IOException e) {
