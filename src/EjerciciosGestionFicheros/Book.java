@@ -12,4 +12,20 @@ public class Book implements Serializable {
         this.editorial = editorial;
         this.fecha = fecha;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public String getInfo() {
+        return "Nombre=" + nombre + ", editorial=" + editorial + ", fecha=" + fecha;
+    }
+
+    public int getFecha() {
+        return fecha;
+    }
 }
