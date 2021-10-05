@@ -14,7 +14,7 @@ public class Ejercicio10 {
             FileOutputStream file = new FileOutputStream("BookFile.dat");
             ObjectOutputStream ous = new ObjectOutputStream(file);
             for (int i = 0; i < 5; i++) {
-                ous.writeObject(libro.editorial + " " + libro.nombre + " " + libro.fecha + "\n");
+                ous.writeObject(libro.nombre + " " + libro.editorial + " " + libro.fecha + "\n");
             }
             ous.close();
         } catch (IOException e) {
@@ -28,11 +28,10 @@ public class Ejercicio10 {
             ObjectInputStream ois = new ObjectInputStream(file);
             Object obj = ois.readObject();
 
-            while (obj != null) {
+            for (int i = 0; i < obj.toString().length(); i++) {
                 System.out.println(obj);
             }
             ois.close();
-
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
