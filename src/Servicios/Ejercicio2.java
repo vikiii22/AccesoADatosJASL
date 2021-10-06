@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
-        //String comando = "calc.exe";
+        //String comando = "calc.exe"; Lo hago con notepad, porque la calculadora cierra el proceso sola y se salta el waitFor().
         String comando = "notepad.exe";
         Process p = null;
 
