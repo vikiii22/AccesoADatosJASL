@@ -9,10 +9,11 @@ public class Ejercicio10 {
     }
 
     private static void escribirObjeto() {
+        Book b1=new Book("libro 1", "Santillana", 2015);
         try {
             FileOutputStream file = new FileOutputStream("BookFile.dat");
             ObjectOutputStream ous = new ObjectOutputStream(file);
-            ous.writeObject(new Book("libro 1", "Santillana", 2015) + "\n");
+            ous.writeObject(b1+ "\n");
             ous.writeObject(new Book("libro 2", "Barco de vapor", 2020) + "\n");
             ous.writeObject(new Book("libro 3", "Merlín", 2011) + "\n");
             ous.close();
@@ -22,14 +23,12 @@ public class Ejercicio10 {
     }
 
     private static void leerObjeto() {
+        Book b;
         try {
             FileInputStream file = new FileInputStream("BookFile.dat");
             ObjectInputStream ois = new ObjectInputStream(file);
-            Object object=ois.readObject();
-            Book b = (Book) object;
-            for (int i = 0; i < object.toString().length(); i++) {
-                System.out.println(b.getInfo());
-            }
+            b=(Book) ois.readObject();
+            b.getInfo();
             ois.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

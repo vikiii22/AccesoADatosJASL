@@ -13,19 +13,7 @@ public class Book implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public String getInfo() {
-        return "Nombre=" + nombre + ", editorial=" + editorial + ", fecha=" + fecha;
-    }
-
-    public int getFecha() {
-        return fecha;
+    public void getInfo() {
+        System.out.println(nombre + editorial + fecha);
     }
 }
