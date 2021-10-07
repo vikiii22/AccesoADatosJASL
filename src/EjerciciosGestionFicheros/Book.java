@@ -14,6 +14,6 @@ public class Book implements Serializable {
     }
 
     public void getInfo() {
-        System.out.println(nombre + editorial + fecha);
+        System.out.println("Nombre: " + nombre + ", Editorial: " + editorial + ", Año: " + fecha);
     }
 }
