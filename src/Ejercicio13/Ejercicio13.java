@@ -54,9 +54,6 @@ public class Ejercicio13 {
             properties.load(fr);
             emailUsuario=properties.getProperty("userEmail", "Default");
             System.out.println(emailUsuario);
-            /*BufferedWriter bw=new BufferedWriter(new FileWriter("nombre.properties"));
-            bw.write("Nombre usuario: " + nombre);
-            bw.close();*/
         } catch (IOException e) {
             e.printStackTrace();
         }
