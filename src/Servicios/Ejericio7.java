@@ -1,5 +1,6 @@
 package Servicios;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +20,7 @@ public class Ejericio7 {
             bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
             while ((linea = bufferedReader.readLine()) != null){
                 if (linea.contains("IPv4")){
-                    System.out.println(linea);
+                    JOptionPane.showMessageDialog(null, linea);
                 }
             }
         } catch (IOException e) {

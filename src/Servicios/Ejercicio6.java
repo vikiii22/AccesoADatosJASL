@@ -1,26 +1,39 @@
 package Servicios;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-//Cambiar a ejercicio 5 buscan información
-public class Ejercicio5 {
-    public static void main(String[] args) {
-        int i=0, fin=0;
-        Process process=null;
 
-        if (args.length<1){
+public class Ejercicio6 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Process> p = new ArrayList<>();
+        int i = 0, fin = 0;
+        Process process = null;
+
+        if (args.length < 1) {
             System.err.println("Número de parámtros incorrecto");
-        }else{
-            fin= args.length;
+        } else {
+            fin = args.length;
             try {
-                while (i<fin){
-                    process=Runtime.getRuntime().exec(args[i]);
+                while (i < fin) {
+                    process = Runtime.getRuntime().exec(args[i]);
                     i++;
+                    p.add(process);
                 }
-                int res=process.waitFor();
+                for (int j=0; j<p.size();j++){
+                    System.out.println("Desea eliminar el proceso "+j+"?");
+                    String elegido=sc.nextLine();
+                    if (elegido.equals("si")){
+                        if (j==0){
+                            process.destroy();
+                        }if (j==1){
+                            process.destroy();
+                        }
+                    }
+                }
+                int res = process.waitFor();
                 System.out.println("Aplicaciones finalizadas");
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
