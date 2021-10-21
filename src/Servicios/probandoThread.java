@@ -1,7 +1,6 @@
 package Servicios;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class probandoThread {
@@ -27,7 +26,7 @@ public class probandoThread {
     }
 
     public static void main(String[] args) throws IOException {
-        Runnable run=new Runnable() {
+        Runnable run = new Runnable() {
             @Override
             public void run() {
                 Scanner sc = new Scanner(System.in);
@@ -39,8 +38,9 @@ public class probandoThread {
                 while (!intro.equals("fin")) {
                     System.out.println("Introduce algo");
                     intro = sc.nextLine();
-                    num = (int) (1 + Math.random() * 10);
+                    num = (int) (0 + Math.random() * 10);
                     if (intro.equals("fin")) {
+                        System.out.println("El programa acabó satisfactoriamente");
                         break;
                     } else {
                         System.out.println(num);
@@ -48,9 +48,19 @@ public class probandoThread {
                 }
             }
         };
-        Thread t=new Thread(run);
+        Thread t = new Thread(run);
+        Thread t2 = new Thread(run);
         t.start();
-        System.out.println(t.getName());
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        t2.start();
+        while (t.isAlive() && t2.isAlive()){
+            System.out.println(t.getName());
+            System.out.println(t2.getName());
+        }
     }
 
 }

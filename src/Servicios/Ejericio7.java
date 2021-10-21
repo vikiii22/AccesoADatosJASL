@@ -19,7 +19,7 @@ public class Ejericio7 {
             inputStream=p.getInputStream();
             bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
             while ((linea = bufferedReader.readLine()) != null){
-                if (linea.contains("IPv4")){
+                if (linea.contains("IPv4") || linea.contains("inet")){
                     JOptionPane.showMessageDialog(null, linea);
                 }
             }
