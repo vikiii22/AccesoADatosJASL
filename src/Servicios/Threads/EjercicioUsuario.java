@@ -40,5 +40,6 @@ public class EjercicioUsuario implements Runnable{
 class EjecutaUsuario{
     public static void main(String[] args) {
         new EjercicioUsuario();
+        System.out.println("Proceso principal");
     }
 }
