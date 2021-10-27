@@ -1,6 +1,5 @@
 package PSP.Threads;
 
-import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
