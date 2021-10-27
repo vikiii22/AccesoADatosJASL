@@ -13,17 +13,17 @@ public class EjercicioUsuario implements Runnable{
     }
     @Override
     public void run() {
-        int horaEntrada=8;
+        double horaEntrada=8.00;
         Scanner sc=new Scanner(System.in);
         System.out.print("Nombre usuario: ");
         String usuario=sc.nextLine();
         System.out.print("Hora llegada: ");
-        int horaLlegada=sc.nextInt();
+        double horaLlegada=sc.nextDouble();
         SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yy");
         Date date=new Date();
         System.out.println("Día: " + dateFormat.format(date));
 
-        if (horaLlegada > 24 || horaLlegada < 0){
+        if (horaLlegada > 23.59 || horaLlegada < 0.00){
             System.err.println("Hora fuera de rango");
             t.stop();
         }
