@@ -1,4 +1,4 @@
-package Servicios.Ejercicio1_9;
+package PSP.Ejercicio1_9;
 
 import java.io.BufferedReader;
 import java.io.IOException;

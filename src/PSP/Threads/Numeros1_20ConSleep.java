@@ -1,4 +1,4 @@
-package Servicios.Threads;
+package PSP.Threads;
 
 public class Numeros1_20ConSleep extends Thread{
     @Override

@@ -1,4 +1,4 @@
-package Servicios.Threads;
+package PSP.Threads;
 
 public class Ejemplo2 extends Thread{
     @Override

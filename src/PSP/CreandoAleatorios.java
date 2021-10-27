@@ -1,4 +1,4 @@
-package Servicios;
+package PSP;
 
 public class CreandoAleatorios {
     public static void main(String[] args) {

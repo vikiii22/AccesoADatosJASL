@@ -1,6 +1,4 @@
-package Servicios.Threads;
-
-import java.io.IOException;
+package PSP.Threads;
 
 public class UsandoDosHilosConSleep extends Thread {
     int id;

@@ -1,10 +1,6 @@
-package Servicios;
+package PSP;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Aleatorios {

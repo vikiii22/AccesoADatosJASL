@@ -1,4 +1,4 @@
-package Servicios.Threads;
+package PSP.Threads;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ public class Fibonacci extends Thread {
     public void run() {
         Scanner sc = new Scanner(System.in);
         int numero, fibo1, fibo2, i;
-        System.out.print("Introduce un número mayor que uno: ");
+        System.out.print("Introduce cuantos números quieres: ");
         numero = sc.nextInt();
 
         while (numero <= 1) System.out.println(numero);

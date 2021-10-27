@@ -1,7 +1,6 @@
-package Servicios;
+package PSP;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 
 public class Aleatorios2 {
     public static void main(String[] args) {

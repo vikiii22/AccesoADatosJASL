@@ -1,4 +1,4 @@
-package Servicios.Threads;
+package PSP.Threads;
 
 public class EjemplosHilos implements Runnable{
     Thread t;

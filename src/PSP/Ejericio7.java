@@ -1,4 +1,4 @@
-package Servicios;
+package PSP;
 
 import javax.swing.*;
 import java.io.BufferedReader;
