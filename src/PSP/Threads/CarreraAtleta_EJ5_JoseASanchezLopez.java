@@ -2,7 +2,7 @@ package PSP.Threads;
 
 import java.util.Scanner;
 
-public class CarreraAtleta{
+public class CarreraAtleta_EJ5_JoseASanchezLopez {
     String nombre;
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -13,7 +13,7 @@ class Kilometros extends Thread {
     @Override
     public void run() {
         try {
-            CarreraAtleta atleta = new CarreraAtleta();
+            CarreraAtleta_EJ5_JoseASanchezLopez atleta = new CarreraAtleta_EJ5_JoseASanchezLopez();
             Scanner sc = new Scanner(System.in);
             System.out.print("Nombre del Atleta: ");
             String nombre = sc.nextLine();

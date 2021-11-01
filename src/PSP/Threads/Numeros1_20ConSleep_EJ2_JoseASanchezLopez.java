@@ -1,6 +1,6 @@
 package PSP.Threads;
 
-public class Numeros1_20ConSleep extends Thread{
+public class Numeros1_20ConSleep_EJ2_JoseASanchezLopez extends Thread{
     @Override
     public void run() {
         try {
@@ -16,7 +16,7 @@ public class Numeros1_20ConSleep extends Thread{
 
 class EjecutaConSleep{
     public static void main(String[] args) {
-        new Numeros1_20ConSleep().start();
+        new Numeros1_20ConSleep_EJ2_JoseASanchezLopez().start();
         System.out.println("USANDO SLEEP");
     }
 }

@@ -2,7 +2,7 @@ package PSP.Threads;
 
 import java.util.Scanner;
 
-public class Fibonacci extends Thread {
+public class Fibonacci_EJ1_JoseASanchezLopez extends Thread {
     @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class Fibonacci extends Thread {
 
 class EjectutaFibo {
     public static void main(String[] args) {
-        new Fibonacci().start();
+        new Fibonacci_EJ1_JoseASanchezLopez().start();
         System.out.println("Serie Fibonacci");
     }
 }

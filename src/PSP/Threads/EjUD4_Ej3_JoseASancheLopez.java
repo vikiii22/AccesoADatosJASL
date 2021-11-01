@@ -1,9 +1,9 @@
 package PSP.Threads;
 
-public class EjUD4_Ej4_JoseASancheLopez extends Thread {
+public class EjUD4_Ej3_JoseASancheLopez extends Thread {
     int id;
 
-    public EjUD4_Ej4_JoseASancheLopez(int id) {
+    public EjUD4_Ej3_JoseASancheLopez(int id) {
         this.id = id;
     }
 
@@ -42,7 +42,7 @@ class UsandoDosHilosConSleep2 extends Thread{
 
 class EjecutandoSleep{
     public static void main(String[] args) {
-        Thread hilo1=new Thread(new EjUD4_Ej4_JoseASancheLopez(1));
+        Thread hilo1=new Thread(new EjUD4_Ej3_JoseASancheLopez(1));
         Thread hilo2=new Thread(new UsandoDosHilosConSleep2(2));
 
         hilo1.start();

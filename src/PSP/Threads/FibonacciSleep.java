@@ -31,7 +31,7 @@ public class FibonacciSleep extends Thread {
 
 class EjectutaFiboConSleep {
     public static void main(String[] args) {
-        new Fibonacci().start();
+        new Fibonacci_EJ1_JoseASanchezLopez().start();
         System.out.println("Serie Fibonacci");
     }
 }
