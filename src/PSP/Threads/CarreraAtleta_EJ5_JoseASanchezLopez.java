@@ -23,7 +23,6 @@ class Kilometros extends Thread {
                 sleep(2500);
                 System.out.println("Km " + i + " de 30");
                 if (i == 30) {
-
                     System.out.println(atleta.nombre + " ha terminado la carrera.");
                 }
             }
