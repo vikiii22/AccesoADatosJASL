@@ -61,10 +61,9 @@ class EjecutaEJ3Hilos2 {
         t2.join();
         t3.start();
 
-        /*BufferedReader br=new BufferedReader(new FileReader("Prueba.txt"));
-        String linea;
-        while ((linea=br.readLine())!=null){
-            System.out.println(linea);
-        }*/
+        /**
+         * Aquí he usado los join() porque no sabía si en el ejercicio se pedía que esperase a la finalización de
+         * cada hilo o si daba igual que estuviese desorganizado
+         */
     }
 }

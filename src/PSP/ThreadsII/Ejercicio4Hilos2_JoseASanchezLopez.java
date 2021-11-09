@@ -63,10 +63,9 @@ class EjecutaEJ4Hilos2 {
         t2.start();
         t3.start();
 
-        /*BufferedReader br=new BufferedReader(new FileReader("Prueba.txt"));
-        String linea;
-        while ((linea=br.readLine())!=null){
-            System.out.println(linea);
-        }*/
+        /**
+         * Aquí he usado las prioridades de los hilos, empieza el de máxima prioridad y ya van ejecutandose por orden
+         * pero después de una vuelta se "desordenan".
+         */
     }
 }
