@@ -52,17 +52,16 @@ class Hilo3Ejercicio4 extends Thread{
 
 class EjecutaEJ4Hilos2 {
     public static void main(String[] args) throws IOException, InterruptedException {
-        Thread t=new Thread(new Ejercicio3Hilos2_JoseASanchezLopez());
+        Thread t=new Thread(new Ejercicio4Hilos2_JoseASanchezLopez());
         Thread t2=new Thread(new Hilo2Ejercicio4());
         Thread t3=new Thread(new Hilo3Ejercicio4());
         t.setPriority(Thread.NORM_PRIORITY);
         t2.setPriority(Thread.MIN_PRIORITY);
         t3.setPriority(Thread.MAX_PRIORITY);
 
-        t3.start();
-        t3.join();
         t.start();
         t2.start();
+        t3.start();
 
         /*BufferedReader br=new BufferedReader(new FileReader("Prueba.txt"));
         String linea;
