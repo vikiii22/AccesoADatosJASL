@@ -53,8 +53,8 @@ class Hilo3Ejercicio3 extends Thread{
 class EjecutaEJ3Hilos2 {
     public static void main(String[] args) throws IOException, InterruptedException {
         Thread t=new Thread(new Ejercicio3Hilos2_JoseASanchezLopez());
-        Thread t2=new Thread(new Hilo2Ejercicio4());
-        Thread t3=new Thread(new Hilo3Ejercicio4());
+        Thread t2=new Thread(new Hilo2Ejercicio3());
+        Thread t3=new Thread(new Hilo3Ejercicio3());
         t.start();
         t.join();
         t2.start();
