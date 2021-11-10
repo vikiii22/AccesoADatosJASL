@@ -1,4 +1,4 @@
-package PSP.ThreadsII;
+package PSP.ThreadsII.EjerciciosRepaso;
 
 public class Ej2ClaseMiHilo2 extends Thread{
     @Override

@@ -1,4 +1,4 @@
-package PSP.ThreadsII;
+package PSP.ThreadsII.EjerciciosRepaso;
 
 public class Ej1Clase implements Runnable {
     Thread t;

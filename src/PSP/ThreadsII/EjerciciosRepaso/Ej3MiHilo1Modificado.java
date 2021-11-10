@@ -1,4 +1,4 @@
-package PSP.ThreadsII;
+package PSP.ThreadsII.EjerciciosRepaso;
 
 public class Ej3MiHilo1Modificado implements Runnable{
     Thread t;
@@ -10,7 +10,7 @@ public class Ej3MiHilo1Modificado implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Hilo "+ id + " :)");
+        System.out.println("Hilo 4 "+ id + " :)");
     }
 }
 

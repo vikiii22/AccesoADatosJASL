@@ -1,4 +1,4 @@
-package PSP.ThreadsII;
+package PSP.ThreadsII.EjerciciosRepaso;
 
 public class Ej4Mihilo2Modificado extends Thread{
     private int id;
@@ -9,7 +9,7 @@ public class Ej4Mihilo2Modificado extends Thread{
 
     @Override
     public void run() {
-        System.out.println("Mi hilo " + id + " modificando hilo 1");
+        System.out.println("Mi hilo 4" + id + " modificando hilo 1");
     }
 }
 
