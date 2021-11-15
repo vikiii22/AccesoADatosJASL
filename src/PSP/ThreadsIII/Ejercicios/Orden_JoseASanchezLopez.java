@@ -24,11 +24,11 @@ public class Orden_JoseASanchezLopez extends Thread {
     }
 }
 
-class prueba2 extends Thread{
+class Orden2 extends Thread{
     String texto;
     Semaphore s;
 
-    public prueba2(String texto, Semaphore s) {
+    public Orden2(String texto, Semaphore s) {
         this.texto = texto;
         this.s=s;
     }
@@ -53,7 +53,7 @@ class EjecutaOrden {
         Semaphore sem=new Semaphore(contador);
 
         Thread orden1 = new Thread(new Orden_JoseASanchezLopez("Probando semáforos 1:", sem));
-        Thread orden2 = new Thread(new prueba2("Probando semáforos 2:", sem));
+        Thread orden2 = new Thread(new Orden2("Probando semáforos 2:", sem));
 
         contador++;
         if (contador==1){
@@ -61,8 +61,5 @@ class EjecutaOrden {
             sem.release();
         }
         orden1.start();
-
-        //orden2.start();
-
     }
 }
