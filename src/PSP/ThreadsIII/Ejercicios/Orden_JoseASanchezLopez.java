@@ -23,7 +23,7 @@ public class Orden_JoseASanchezLopez extends Thread {
 }
 
 class Orden2 extends Thread {
-    Contador contador=new Contador(0);
+    Contador contador = new Contador(0);
     String texto;
     Semaphore s;
 
@@ -58,7 +58,7 @@ class Contador {
 
 class EjecutaOrden {
     public static void main(String[] args) throws InterruptedException {
-        Contador contador=new Contador(0);
+        Contador contador = new Contador(0);
         Semaphore sem = new Semaphore(contador.value());
 
         Thread orden1 = new Thread(new Orden_JoseASanchezLopez("Es un ejercicio de semáforos By: Jose. Adiós", sem));
