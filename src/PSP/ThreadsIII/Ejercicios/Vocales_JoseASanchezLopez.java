@@ -2,8 +2,8 @@ package PSP.ThreadsIII.Ejercicios;
 
 import java.util.concurrent.Semaphore;
 
-public class Vocales_JoseASanchezLopez extends Thread{
-    int vocal=0;
+public class Vocales_JoseASanchezLopez extends Thread {
+    int vocal = 0;
     String texto;
     Semaphore s;
 
@@ -15,20 +15,16 @@ public class Vocales_JoseASanchezLopez extends Thread{
     @Override
     public void run() {
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i)=='a'||texto.charAt(i)=='A'){
+            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'A') {
                 vocal++;
             }
         }
         System.out.println("A: " + vocal);
         s.release();
     }
-
-    public int getVocal() {
-        return vocal;
-    }
 }
 
-class VocalE extends Thread{
+class VocalE extends Thread {
     int vocal;
     String texto;
     Semaphore s;
@@ -47,7 +43,7 @@ class VocalE extends Thread{
             e.printStackTrace();
         }
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i)=='e' || texto.charAt(i)=='E'){
+            if (texto.charAt(i) == 'e' || texto.charAt(i) == 'E') {
                 vocal++;
             }
         }
@@ -56,7 +52,7 @@ class VocalE extends Thread{
     }
 }
 
-class VocalI extends Thread{
+class VocalI extends Thread {
     int vocal;
     String texto;
     Semaphore s;
@@ -74,7 +70,7 @@ class VocalI extends Thread{
             e.printStackTrace();
         }
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i)=='i' || texto.charAt(i)=='I'){
+            if (texto.charAt(i) == 'i' || texto.charAt(i) == 'I') {
                 vocal++;
             }
         }
@@ -83,7 +79,7 @@ class VocalI extends Thread{
     }
 }
 
-class VocalO extends Thread{
+class VocalO extends Thread {
     int vocal;
     String texto;
     Semaphore s;
@@ -101,7 +97,7 @@ class VocalO extends Thread{
             e.printStackTrace();
         }
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i)=='o' || texto.charAt(i)=='O'){
+            if (texto.charAt(i) == 'o' || texto.charAt(i) == 'O') {
                 vocal++;
             }
         }
@@ -110,7 +106,7 @@ class VocalO extends Thread{
     }
 }
 
-class VocalU extends Thread{
+class VocalU extends Thread {
     int vocal;
     String texto;
     Semaphore s;
@@ -128,7 +124,7 @@ class VocalU extends Thread{
             e.printStackTrace();
         }
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i)=='u' || texto.charAt(i)=='U'){
+            if (texto.charAt(i) == 'u' || texto.charAt(i) == 'U') {
                 vocal++;
             }
         }
@@ -137,16 +133,17 @@ class VocalU extends Thread{
     }
 }
 
-class EjecutaVocal{
-    public static void main(String[] args) {
-        String texto="Hola mi nombre es Jose, estoy en 2 de DAM, usted quien es?";
-        Semaphore sem=new Semaphore(0);
 
-        Thread a=new Thread(new Vocales_JoseASanchezLopez(texto, sem));
-        Thread e=new Thread(new VocalE(texto, sem));
-        Thread i=new Thread(new VocalI(texto, sem));
-        Thread o=new Thread(new VocalO(texto, sem));
-        Thread u=new Thread(new VocalU(texto, sem));
+class EjecutaVocal {
+    public static void main(String[] args) {
+        String texto = "Hola mi nombre es Jose, estoy en 2 de DAM, usted quien es?";
+        Semaphore sem = new Semaphore(0);
+
+        Thread a = new Thread(new Vocales_JoseASanchezLopez(texto, sem));
+        Thread e = new Thread(new VocalE(texto, sem));
+        Thread i = new Thread(new VocalI(texto, sem));
+        Thread o = new Thread(new VocalO(texto, sem));
+        Thread u = new Thread(new VocalU(texto, sem));
 
         a.start();
         e.start();
