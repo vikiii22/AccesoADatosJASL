@@ -144,7 +144,7 @@ class EjecutaVocal {
         Thread i = new Thread(new VocalI(texto, sem));
         Thread o = new Thread(new VocalO(texto, sem));
         Thread u = new Thread(new VocalU(texto, sem));
-
+//f
         a.start();
         e.start();
         i.start();
