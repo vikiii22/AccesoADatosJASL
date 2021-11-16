@@ -52,9 +52,6 @@ class Contador {
         this.contador = contador;
     }
 
-    public Contador() {
-    }
-
     public synchronized void incremento() {
         contador++;
     }
