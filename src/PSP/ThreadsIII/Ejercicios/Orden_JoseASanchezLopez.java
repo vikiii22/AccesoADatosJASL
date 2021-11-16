@@ -15,9 +15,7 @@ public class Orden_JoseASanchezLopez extends Thread {
     public void run() {
         try {
             s.acquire();
-            for (int i = 1; i <= 10; i++) {
-                System.out.println(texto + " " + i);
-            }
+            System.out.println(texto);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -25,6 +23,7 @@ public class Orden_JoseASanchezLopez extends Thread {
 }
 
 class Orden2 extends Thread {
+    Contador contador=new Contador(0);
     String texto;
     Semaphore s;
 
@@ -36,10 +35,9 @@ class Orden2 extends Thread {
     @Override
     public void run() {
         try {
+            contador.incremento();
             s.acquire();
-            for (int i = 1; i <= 10; i++) {
-                System.out.println(texto + " " + i);
-            }
+            System.out.println(texto);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -68,10 +66,9 @@ class EjecutaOrden {
         Contador contador=new Contador(0);
         Semaphore sem = new Semaphore(contador.value());
 
-        Thread orden1 = new Thread(new Orden_JoseASanchezLopez("Probando semáforos 1:", sem));
-        Thread orden2 = new Thread(new Orden2("Probando semáforos 2:", sem));
+        Thread orden1 = new Thread(new Orden_JoseASanchezLopez("Es un ejercicio de semáforos By: Jose", sem));
+        Thread orden2 = new Thread(new Orden2("Esto no es una copia", sem));
 
-        contador.incremento();
         orden2.start();
         sem.release();
         orden1.start();
