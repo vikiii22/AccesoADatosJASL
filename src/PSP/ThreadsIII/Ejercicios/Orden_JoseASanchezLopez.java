@@ -65,17 +65,15 @@ class Contador {
 
 class EjecutaOrden {
     public static void main(String[] args) throws InterruptedException {
-        Contador contador = new Contador(0);
+        Contador contador=new Contador(0);
         Semaphore sem = new Semaphore(contador.value());
 
         Thread orden1 = new Thread(new Orden_JoseASanchezLopez("Probando semáforos 1:", sem));
         Thread orden2 = new Thread(new Orden2("Probando semáforos 2:", sem));
 
         contador.incremento();
-        if (contador.value() == 1) {
-            orden2.start();
-            sem.release();
-        }
+        orden2.start();
+        sem.release();
         orden1.start();
     }
 }
