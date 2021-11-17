@@ -15,19 +15,14 @@ public class Vocales_JoseASanchezLopez extends Thread {
 
     @Override
     public void run() {
-        try {
-            s.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         for (int i = 0; i < texto.length(); i++) {
             if (texto.charAt(i) == 'a' || texto.charAt(i) == 'A') {
                 vocal++;
             }
         }
-        if (vocal==1) {
+        if (vocal == 1) {
             System.out.println("La A aparece: " + vocal + " vez");
-        }else{
+        } else {
             System.out.println("La A aparece: " + vocal + " veces");
         }
         s.release();
@@ -57,9 +52,9 @@ class VocalE extends Thread {
                 vocal++;
             }
         }
-        if (vocal==1) {
+        if (vocal == 1) {
             System.out.println("La E aparece: " + vocal + " vez");
-        }else{
+        } else {
             System.out.println("La E aparece: " + vocal + " veces");
         }
         s.release();
@@ -88,9 +83,9 @@ class VocalI extends Thread {
                 vocal++;
             }
         }
-        if (vocal==1) {
+        if (vocal == 1) {
             System.out.println("La I aparece: " + vocal + " vez");
-        }else{
+        } else {
             System.out.println("La I aparece: " + vocal + " veces");
         }
         s.release();
@@ -119,9 +114,9 @@ class VocalO extends Thread {
                 vocal++;
             }
         }
-        if (vocal==1) {
+        if (vocal == 1) {
             System.out.println("La O aparece: " + vocal + " vez");
-        }else{
+        } else {
             System.out.println("La O aparece: " + vocal + " veces");
         }
         s.release();
@@ -150,9 +145,9 @@ class VocalU extends Thread {
                 vocal++;
             }
         }
-        if (vocal==1) {
+        if (vocal == 1) {
             System.out.println("La U aparece: " + vocal + " vez");
-        }else{
+        } else {
             System.out.println("La U aparece: " + vocal + " veces");
         }
         s.release();
@@ -167,7 +162,7 @@ class EjecutaVocal {
         /*Scanner sc=new Scanner(System.in);
         System.out.println("Introduce una cadena de texto");
         String texto= sc.nextLine();*/
-        Semaphore sem = new Semaphore(1);
+        Semaphore sem = new Semaphore(0);
 
         Thread a = new Thread(new Vocales_JoseASanchezLopez(texto, sem));
         Thread e = new Thread(new VocalE(texto, sem));
