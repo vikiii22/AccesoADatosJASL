@@ -28,14 +28,25 @@ public class Filosofos extends Thread {
     @Override
     public void run() {
         while (true){
-            izq.tenedorLibre(id);
-            derecha.tenedorLibre(id);
+            try {
+                izq.tenedorLibre(id);
+                derecha.tenedorLibre(id);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Se dispone a comer " + getNombre());
+            System.out.println("Comiendo...");
             System.out.println();
 
             izq.tenedorOcupado(id);
             derecha.tenedorOcupado(id);
             System.out.println("Ha terminado de comer " + getNombre());
+            System.out.println("Comiendo...");
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println();
         }
     }
@@ -51,7 +62,7 @@ class Tenedor{
         this.f.setNombre(f);
     }
 
-    public synchronized void tenedorLibre(int i){
+    public synchronized void tenedorLibre(int i) throws InterruptedException {
         System.out.println(f.getNombre() + " coge el tenedor " + id);
         libre=false;
     }
