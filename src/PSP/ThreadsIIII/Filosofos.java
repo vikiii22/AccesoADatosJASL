@@ -2,22 +2,22 @@ package PSP.ThreadsIIII;
 
 public class Filosofos extends Thread {
     String nombre;
-    Tenedor izq, derecha;
-    int id;
-
-    public Filosofos() {
-
-    }
+    Palillo izq, derecha;
 
 
-    public Filosofos(String nombre, Tenedor izq, Tenedor derecha) {
+    public Filosofos(String nombre, Palillo izq, Palillo derecha) {
         this.nombre = nombre;
         this.izq = izq;
         this.derecha = derecha;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+    public Palillo getIzq() {
+        return izq;
+    }
+
+    public Palillo getDerecha() {
+        return derecha;
     }
 
     public String getNombre() {
@@ -27,67 +27,77 @@ public class Filosofos extends Thread {
 
     @Override
     public void run() {
-        while (true){
-            try {
-                izq.tenedorLibre(id);
-                derecha.tenedorLibre(id);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        while (true) {
+            while (!izq.estaOcupado() && !derecha.estaOcupado()) {
+                tenedorOcupado();
+                System.out.println("Está comiendo " + getNombre());
+                System.out.println("Comiendo...");
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Ha terminado de comer " + getNombre());
+                System.out.println("Pensando...");
+                tenedorLibre();
+                System.out.println();
             }
-            System.out.println("Se dispone a comer " + getNombre());
-            System.out.println("Comiendo...");
-            System.out.println();
-
-            izq.tenedorOcupado(id);
-            derecha.tenedorOcupado(id);
-            System.out.println("Ha terminado de comer " + getNombre());
-            System.out.println("Comiendo...");
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println();
         }
+    }
+
+    public synchronized void tenedorOcupado() {
+        izq.setOcupado(true);
+        derecha.setOcupado(true);
+        System.out.println(getNombre() + " Está comiendo... con los palillos " + izq.getNum() + " y " + derecha.getNum());
+    }
+
+    public synchronized void tenedorLibre() {
+        izq.setOcupado(false);
+        derecha.setOcupado(false);
+        System.out.println("Suelta los palillos " + izq.getNum() + " y " + derecha.getNum());
     }
 }
 
-class Tenedor{
-    int id;
-    boolean libre=true;
-    Filosofos f=new Filosofos();
 
-    public Tenedor(String f ,int id) {
-        this.id = id;
-        this.f.setNombre(f);
+class Palillo {
+    int num;
+    boolean ocupado = false;
+
+    public Palillo(int num) {
+        this.num = num;
     }
 
-    public synchronized void tenedorLibre(int i) throws InterruptedException {
-        System.out.println(f.getNombre() + " coge el tenedor " + id);
-        libre=false;
+    public int getNum() {
+        return num;
     }
 
-    public synchronized void tenedorOcupado(int i){
-        libre=true;
-        System.out.println(f.getNombre() + " suelta el tenedor " + id);
-        notify();
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public boolean estaOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
     }
 }
 
 class FilosofosEjecucion {
     public static void main(String[] args) {
 
-        Tenedor t1=new Tenedor("F1", 1);
-        Tenedor t2=new Tenedor("F2",2);
-        Tenedor t3=new Tenedor("F3", 3);
-        Tenedor t4=new Tenedor("F4", 4);
-        Tenedor t5=new Tenedor("F5", 5);
+        Palillo p1 = new Palillo(1);
+        Palillo p2 = new Palillo(2);
+        Palillo p3 = new Palillo(3);
+        Palillo p4 = new Palillo(4);
+        Palillo p5 = new Palillo(5);
 
-        Filosofos f1 = new Filosofos("F1", t1, t2);
-        Filosofos f2 = new Filosofos("F2", t2, t3);
-        Filosofos f3 = new Filosofos("F3", t3, t4);
-        Filosofos f4 = new Filosofos("F4", t4, t5);
-        Filosofos f5 = new Filosofos("F5", t5, t1);
+        Filosofos f1 = new Filosofos("F1", p1, p2);
+        Filosofos f2 = new Filosofos("F2", p2, p3);
+        Filosofos f3 = new Filosofos("F3", p3, p4);
+        Filosofos f4 = new Filosofos("F4", p4, p5);
+        Filosofos f5 = new Filosofos("F5", p5, p1);
 
 
         f1.start();
