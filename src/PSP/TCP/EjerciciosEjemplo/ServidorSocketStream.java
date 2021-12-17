@@ -19,27 +19,22 @@ public class ServidorSocketStream {
             InetSocketAddress addr = new InetSocketAddress("localhost", 6666);
             serverSocket.bind(addr);
 
-            int cliente = 1;
-            Socket newSocket=null;
-            while (cliente <= 3) {
+            Socket newSocket = null;
 
-                System.out.println("Aceptando peticiones");
+            System.out.println("Aceptando peticiones");
 
+            newSocket = serverSocket.accept();
 
-                System.out.println("Conexión recibida, cliente: " + cliente);
+            System.out.println("Conexión recibida");
 
-                newSocket=serverSocket.accept();
+            InputStream is = newSocket.getInputStream();
+            OutputStream os = newSocket.getOutputStream();
 
-                InputStream is = newSocket.getInputStream();
-                OutputStream os = newSocket.getOutputStream();
+            byte[] mensaje = new byte[60];
+            is.read(mensaje);
 
-                byte[] mensaje = new byte[60];
-                is.read(mensaje);
+            System.out.println("Mensaje recibido " + new String(mensaje));
 
-                System.out.println("Mensaje recibido " + new String(mensaje));
-                cliente++;
-
-            }
             System.out.println("Cerrando el nuevo Socket");
 
             newSocket.close();
