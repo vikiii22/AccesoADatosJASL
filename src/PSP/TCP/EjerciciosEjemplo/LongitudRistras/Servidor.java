@@ -1,4 +1,4 @@
-package PSP.TCP.EjerciciosEjemplo.SaludoServidorCliente;
+package PSP.TCP.EjerciciosEjemplo.LongitudRistras;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +36,9 @@ public class Servidor {
                 byte[] mensaje = new byte[30];
                 is.read(mensaje);
                 System.out.println(new String(mensaje));
+                int longitud=mensaje.length;
+                String men="Tu mensaje tiene una longitud de: ";
+                os.write(String.valueOf(men + longitud).getBytes(StandardCharsets.UTF_8));
 
                 System.out.println("Hola cliente nº " + cliente);
                 cliente++;

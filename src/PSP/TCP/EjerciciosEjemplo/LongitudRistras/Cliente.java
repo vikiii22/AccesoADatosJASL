@@ -1,4 +1,4 @@
-package PSP.TCP.EjerciciosEjemplo.SaludoServidorCliente;
+package PSP.TCP.EjerciciosEjemplo.LongitudRistras;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +25,10 @@ public class Cliente {
             String mensaje="Soy cliente";
             os.write(mensaje.getBytes(StandardCharsets.UTF_8));
             System.out.println("Mensaje enviado");
+
+            byte[] mensajereci=new byte[40];
+            is.read(mensajereci);
+            System.out.println(new String(mensajereci));
 
             System.out.println("Cerrando el Socket de cliente");
             clienteSocket.close();
