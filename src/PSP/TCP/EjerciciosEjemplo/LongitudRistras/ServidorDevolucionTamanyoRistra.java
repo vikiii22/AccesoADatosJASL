@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class Servidor {
+public class ServidorDevolucionTamanyoRistra {
     public static void main(String[] args) {
         try {
             System.out.println("Creando socket servidor");
@@ -21,8 +21,7 @@ public class Servidor {
             serverSocket.bind(addr);
 
             Socket newSocket = null;
-            int cliente=1;
-            while (cliente <= 3) {
+            while (true) {
 
                 System.out.println("Aceptando peticiones");
 
@@ -40,19 +39,7 @@ public class Servidor {
                 String men="Tu mensaje tiene una longitud de: ";
                 os.write(String.valueOf(men + longitud).getBytes(StandardCharsets.UTF_8));
 
-                System.out.println("Hola cliente nº " + cliente);
-                cliente++;
             }
-            System.out.println("Cerrando el nuevo Socket");
-
-            newSocket.close();
-
-            System.out.println("Cerrando el socket servidor");
-
-            serverSocket.close();
-
-            System.out.println("Terminado");
-
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class Cliente {
+public class ClienteEscritor {
     public static void main(String[] args) {
         try {
             System.out.println("Creando socket cliente");
