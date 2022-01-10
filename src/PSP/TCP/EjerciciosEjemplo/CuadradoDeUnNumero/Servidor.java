@@ -3,7 +3,6 @@ package PSP.TCP.EjerciciosEjemplo.CuadradoDeUnNumero;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -25,7 +24,6 @@ public class Servidor {
 
             InputStream is = nuevoSocket.getInputStream();
             DataInputStream dis = new DataInputStream(is);
-            OutputStream os = nuevoSocket.getOutputStream();
 
             int numero = dis.readInt();
             System.out.println("El cuadrado de " + numero + " es: " + numero * numero);
