@@ -15,8 +15,6 @@ public class Cliente {
             while (sigue) {
                 cliente = new Socket();
 
-                //System.out.println("Estableciendo conexión");
-
                 InetSocketAddress addr = new InetSocketAddress("localhost", 2112);
                 cliente.connect(addr);
 
@@ -25,8 +23,6 @@ public class Cliente {
                 DataOutputStream dos = new DataOutputStream(os);
                 DataInputStream dis = new DataInputStream(is);
 
-
-                //System.out.println("Enviando mensaje");
 
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Introduce una cadena: ");
