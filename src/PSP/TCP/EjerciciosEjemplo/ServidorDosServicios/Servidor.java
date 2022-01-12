@@ -10,8 +10,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Servidor {
-    public static void main(String[] args) {
+public class Servidor extends Thread{
+    @Override
+    public void run() {
         try {
             ServerSocket serverSocket = new ServerSocket();
             InetSocketAddress addr=new InetSocketAddress("localhost", 9998);
@@ -49,5 +50,12 @@ public class Servidor {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+}
+
+class EjecutaServidor{
+    public static void main(String[] args) {
+        Servidor s=new Servidor();
+        s.start();
     }
 }
