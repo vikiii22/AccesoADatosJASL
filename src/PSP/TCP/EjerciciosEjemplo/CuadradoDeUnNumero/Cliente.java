@@ -21,6 +21,7 @@ public class Cliente {
             InputStream is=cliente.getInputStream();
             OutputStream os=cliente.getOutputStream();
             DataOutputStream dos=new DataOutputStream(os);
+            DataInputStream in=new DataInputStream(is);
 
             System.out.println("Pensando Número...");
 
@@ -30,6 +31,8 @@ public class Cliente {
 
             dos.writeInt(numero);
             System.out.println("Número enviado");
+            System.out.println(in.readInt() + " Es el cuadrado de " + numero);
+
             System.out.println("Cerrando el socket cliente");
             cliente.close();
             System.out.println("Terminado");
