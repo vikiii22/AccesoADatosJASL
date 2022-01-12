@@ -35,7 +35,7 @@ public class Servidor {
                 String cadena = dis.readUTF();
                 dos.writeUTF(cadena);
 
-                if (cadena.toLowerCase(Locale.ROOT).contains("bye")) {
+                if (cadena.toLowerCase(Locale.ROOT).equals("bye")) {
                     sigue = false;
                     nuevoSocket.close();
                 }

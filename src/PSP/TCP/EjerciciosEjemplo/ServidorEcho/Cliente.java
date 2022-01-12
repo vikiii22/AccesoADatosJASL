@@ -27,7 +27,7 @@ public class Cliente {
                 Scanner sc = new Scanner(System.in);
                 System.out.print("Introduce una cadena: ");
                 String mensaje = sc.nextLine();
-                if (mensaje.toLowerCase(Locale.ROOT).contains("bye")) {
+                if (mensaje.toLowerCase(Locale.ROOT).equals("bye")) {
                     sigue = false;
                     System.out.println("Cerrando el socket cliente");
                 }
