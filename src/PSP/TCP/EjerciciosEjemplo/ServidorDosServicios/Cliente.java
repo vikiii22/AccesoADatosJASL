@@ -38,8 +38,8 @@ public class Cliente {
                 System.out.println("Puerto seleccionado " + puerto);
                 if (puerto==9998){
                     in=new DataInputStream(socket.getInputStream());
-                    String salida=in.readUTF();
-                    System.out.println(salida);
+                    //String salida=in.readUTF();
+                    //System.out.println(salida);
                     sigue=false;
                 }
                 System.out.println("Escribe una cadena: ");

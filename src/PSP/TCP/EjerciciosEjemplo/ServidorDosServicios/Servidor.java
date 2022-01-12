@@ -16,8 +16,8 @@ public class Servidor {
             ServerSocket serverSocket = new ServerSocket();
             InetSocketAddress addr=new InetSocketAddress("localhost", 9998);
             InetSocketAddress addr2=new InetSocketAddress("localhost", 9999);
-            //serverSocket.bind(addr);
-            serverSocket.bind(addr2);
+            serverSocket.bind(addr);
+            //serverSocket.bind(addr2);
 
             Socket socket=null;
             boolean sigue=true;
