@@ -3,7 +3,7 @@ package PSP.TCP.Ejercicios19012022.Ejercicio2;
 import java.io.IOException;
 import java.net.*;
 
-public class Cliente {
+public class Pos1 {
     public static void main(String[] args) {
         try {
             DatagramSocket datagramSocket=new DatagramSocket();
