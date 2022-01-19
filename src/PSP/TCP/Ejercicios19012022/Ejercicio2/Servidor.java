@@ -6,22 +6,22 @@ import java.net.*;
 public class Servidor {
     public static void main(String[] args) {
         try {
-            System.out.println("Creando socket datagram");
+            DatagramSocket datagramSocket=new DatagramSocket(5512);
+            while (true){
+                byte[] mensaje=new byte[15];
+                DatagramPacket datagramPacket=new DatagramPacket(mensaje, mensaje.length);
+                datagramSocket.receive(datagramPacket);
+                String mensajeRecibido=new String(mensaje);
+                System.out.println(mensajeRecibido.trim());
 
-            DatagramSocket datagramSocket=new DatagramSocket();
+                String mensajeEnv="recibido";
+                byte[] mensajeAEnviar=mensajeEnv.getBytes();
+                InetAddress addr=datagramPacket.getAddress();
+                int puerto=datagramPacket.getPort();
+                DatagramPacket respuesta=new DatagramPacket(mensajeAEnviar, mensajeAEnviar.length, addr, puerto);
 
-            String mensaje="token";
-            InetAddress addr=InetAddress.getByName("localhost");
-            DatagramPacket datagramPacket=new DatagramPacket(mensaje.getBytes(), mensaje.getBytes().length, addr, 5412);
-            datagramSocket.send(datagramPacket);
-
-            System.out.println("Token enviado");
-
-            byte[] mensajeRecibido=new byte[15];
-            DatagramPacket datagramPacket1=new DatagramPacket(mensajeRecibido, 15);
-            datagramSocket.receive(datagramPacket1);
-            System.out.println(new String(mensajeRecibido));
-            datagramSocket.close();
+                datagramSocket.send(respuesta);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

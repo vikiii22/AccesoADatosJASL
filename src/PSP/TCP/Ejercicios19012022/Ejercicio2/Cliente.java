@@ -1,32 +1,29 @@
 package PSP.TCP.Ejercicios19012022.Ejercicio2;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetSocketAddress;
-import java.net.SocketException;
+import java.net.*;
 
 public class Cliente {
     public static void main(String[] args) {
         try {
-            InetSocketAddress addr=new InetSocketAddress("localhost", 5412);
-            DatagramSocket datagramSocket=new DatagramSocket(addr);
+            DatagramSocket datagramSocket=new DatagramSocket();
+            String mensajeEnv="token";
+            byte[] mensaje=mensajeEnv.getBytes();
+            InetAddress addr=InetAddress.getByName("localhost");
+            int puerto=5512;
 
-            System.out.println("Recibiendo mensaje");
+            DatagramPacket datagramPacket=new DatagramPacket(mensaje, mensaje.length, addr, puerto);
 
-            byte[] mensaje=new byte[15];
-            DatagramPacket datagramPacket=new DatagramPacket(mensaje, mensaje.length);
-            datagramSocket.receive(datagramPacket);
+            datagramSocket.send(datagramPacket);
 
-            System.out.println("a");
-            System.out.println(new String(mensaje));
+            byte[] respuesta=new byte[15];
+            DatagramPacket respuestas=new DatagramPacket(respuesta, respuesta.length);
+            datagramSocket.receive(respuestas);
+            String recibido=new String(respuestas.getData());
 
-            String mensajeEnviado="recibido";
-            DatagramPacket datagramPacket1=new DatagramPacket(mensajeEnviado.getBytes(), mensajeEnviado.length(), addr);
-            datagramSocket.send(datagramPacket1);
+            System.out.println("Respuesta " + recibido.trim());
 
             datagramSocket.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
