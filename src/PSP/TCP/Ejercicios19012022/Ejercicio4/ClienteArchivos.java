@@ -21,29 +21,23 @@ public class ClienteArchivos {
                 DataInputStream dis = new DataInputStream(is);
 
                 String archivos = dis.readUTF();
-                System.out.println("--------------ARCHIVOS DISPONIBLES PARA DESCARGAR-------------");
-                System.out.println(archivos);
+                String otro="si";
+                while (otro.contains("Si") || otro.contains("si")) {
+                    System.out.println("--------------ARCHIVOS DISPONIBLES PARA DESCARGAR-------------");
+                    System.out.println(archivos);
 
-                Scanner sc = new Scanner(System.in);
-                System.out.println();
-                System.out.println("Que archivo quiere descargar?");
-                String archivoElegido = sc.nextLine();
-                dos.writeUTF(archivoElegido);
-                System.out.println(dis.readUTF());
-                System.out.println(dis.readUTF());
-
-                System.out.print("Quiere descargar otro archivo? ");
-                String otro= sc.nextLine();
-
-                if (otro.contains("Si") || otro.contains("si")){
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println();
                     System.out.println("Que archivo quiere descargar?");
-                    String archivoElegido2 = sc.nextLine();
-                    dos.writeUTF(archivoElegido2);
+                    String archivoElegido = sc.nextLine();
+                    dos.writeUTF(archivoElegido);
                     System.out.println(dis.readUTF());
                     System.out.println(dis.readUTF());
-                }else{
-                    sigue=false;
+
+                    System.out.print("Quiere descargar otro archivo? ");
+                    otro = sc.nextLine();
                 }
+                sigue=false;
             }
 
         } catch (IOException e) {
