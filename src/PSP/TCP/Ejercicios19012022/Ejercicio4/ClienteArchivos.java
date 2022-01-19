@@ -11,18 +11,19 @@ public class ClienteArchivos {
         try {
             boolean sigue=true;
             while (sigue) {
-                Socket cliente = new Socket();
-                InetSocketAddress addr = new InetSocketAddress("localhost", 5566);
-                cliente.connect(addr);
-
-                InputStream is = cliente.getInputStream();
-                OutputStream os = cliente.getOutputStream();
-                DataOutputStream dos = new DataOutputStream(os);
-                DataInputStream dis = new DataInputStream(is);
-
-                String archivos = dis.readUTF();
                 String otro="si";
                 while (otro.contains("Si") || otro.contains("si")) {
+                    Socket cliente = new Socket();
+                    InetSocketAddress addr = new InetSocketAddress("localhost", 5566);
+                    cliente.connect(addr);
+
+                    InputStream is = cliente.getInputStream();
+                    OutputStream os = cliente.getOutputStream();
+                    DataOutputStream dos = new DataOutputStream(os);
+                    DataInputStream dis = new DataInputStream(is);
+
+                    String archivos = dis.readUTF();
+
                     System.out.println("--------------ARCHIVOS DISPONIBLES PARA DESCARGAR-------------");
                     System.out.println(archivos);
 

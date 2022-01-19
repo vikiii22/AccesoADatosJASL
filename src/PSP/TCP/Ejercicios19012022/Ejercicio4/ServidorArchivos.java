@@ -18,9 +18,9 @@ public class ServidorArchivos {
             }
             InetSocketAddress addr=new InetSocketAddress("localhost", 5566);
             socket.bind(addr);
-
+            Socket nuevoSocket=null;
             while (true){
-                Socket nuevoSocket=socket.accept();
+                nuevoSocket=socket.accept();
 
                 InputStream is = nuevoSocket.getInputStream();
                 DataInputStream dis = new DataInputStream(is);
@@ -37,6 +37,7 @@ public class ServidorArchivos {
                     dos.writeUTF("Transferencia completada");
                 }else{
                     dos.writeUTF(elegido + " no existe");
+                    break;
                 }
             }
         } catch (IOException | InterruptedException e) {
