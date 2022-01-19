@@ -12,7 +12,7 @@ public class ServidorArchivos {
             String archivo="";
             File archivos=new File(".");
             for (File f:archivos.listFiles()){
-                if (f.isFile()){
+                if (f.isFile() && f.getName().endsWith(".txt")){
                     archivo+=f.getName()+"\n";
                 }
             }
