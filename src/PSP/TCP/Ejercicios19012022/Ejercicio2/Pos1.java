@@ -21,7 +21,7 @@ public class Pos1 {
             datagramSocket.receive(respuestas);
             String recibido=new String(respuestas.getData());
 
-            System.out.println("Respuesta " + recibido.trim());
+            System.out.println(recibido.trim());
 
             datagramSocket.close();
         } catch (IOException e) {
