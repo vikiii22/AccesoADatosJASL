@@ -12,7 +12,8 @@ public class ServidorArchivos {
             String archivo="";
             File archivos=new File(".");
             for (File f:archivos.listFiles()){
-                if (f.isFile()){
+                //En mi caso respecto al ejercicio 4, cambiando esto ya podría obtener todos los ficheros menos el directorio
+                if (f.isFile() /*&& f.getName().endsWith(".txt")*/){
                     archivo+=f.getName()+"\n";
                 }
             }
