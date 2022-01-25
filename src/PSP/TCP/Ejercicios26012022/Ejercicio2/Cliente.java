@@ -23,8 +23,16 @@ public class Cliente {
                 String respuesta=sc.nextLine();
                 dos.writeUTF(respuesta);
                 if (respuesta.equals("no") || respuesta.equals("No")){
-                    System.out.println(dis.readUTF());
-                    dos.writeUTF("");
+                    System.out.println("Desea ver la lista de compradores?");
+                    String verLista= sc.nextLine();
+                    if (verLista.toLowerCase().equals("si")){
+                        System.out.println(dis.readUTF());
+                        cliente.close();
+                        break;
+                    }else{
+                        cliente.close();
+                        break;
+                    }
                 }else {
                     System.out.println(dis.readUTF());
                     String nombre = sc.nextLine();
