@@ -39,15 +39,14 @@ public class Servidor extends Thread {
                 listaCompradores.add(nombreCliente);
             } else {
                 //dos.writeUTF(compradores.toString());
-                /*for (String s : listaCompradores) {
-                    dos.writeUTF(s);
-                    System.out.println(s);
-                }*/
                 dos.writeInt(listaCompradores.size());
                 int quedan=entradas-listaCompradores.size();
                 dos.writeInt(quedan);
+                for (String s : listaCompradores) {
+                    dos.writeUTF(s);
+                    System.out.println(s);
+                }
             }
-            //dos.writeUTF(compradores);
         } catch (IOException e) {
             e.printStackTrace();
         }
