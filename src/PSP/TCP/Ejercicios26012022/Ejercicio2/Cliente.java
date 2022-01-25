@@ -26,7 +26,8 @@ public class Cliente {
                     System.out.println("Desea ver la lista de compradores?");
                     String verLista= sc.nextLine();
                     if (verLista.toLowerCase().equals("si")){
-                        System.out.println(dis.readUTF());
+                        System.out.println("Han comprado entradas " + dis.readInt() + " personas");
+                        System.out.println("Quedan " + dis.readInt() + " disponibles");
                         cliente.close();
                         break;
                     }else{

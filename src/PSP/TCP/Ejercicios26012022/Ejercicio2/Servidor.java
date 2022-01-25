@@ -17,6 +17,7 @@ public class Servidor extends Thread {
     DataOutputStream dos;
     static ArrayList<String> listaCompradores;
     static String compradores;
+    static int entradas;
 
     public Servidor(Socket socket) {
         this.socket = socket;
@@ -35,15 +36,18 @@ public class Servidor extends Thread {
                 dos.writeUTF("Introduce tu nombre: ");
                 nombreCliente = dis.readUTF();
                 dos.writeUTF("Añadido");
+                listaCompradores.add(nombreCliente);
             } else {
-                dos.writeUTF(compradores.toString());
+                //dos.writeUTF(compradores.toString());
+                /*for (String s : listaCompradores) {
+                    dos.writeUTF(s);
+                    System.out.println(s);
+                }*/
+                dos.writeInt(listaCompradores.size());
+                int quedan=entradas-listaCompradores.size();
+                dos.writeInt(quedan);
             }
-            listaCompradores.add(nombreCliente + "\n");
-            for (String s : listaCompradores) {
-                compradores += s;
-            }
-            dos.writeUTF(compradores);
-            System.out.println(compradores);
+            //dos.writeUTF(compradores);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,6 +60,7 @@ public class Servidor extends Thread {
         serverSocket.bind(addr);
         listaCompradores = new ArrayList<>();
         compradores = "";
+        entradas=50;
         while (true) {
             try {
                 socket = serverSocket.accept();
