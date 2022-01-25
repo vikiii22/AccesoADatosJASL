@@ -33,7 +33,7 @@ public class Servidor extends Thread {
             String comprador = dis.readUTF();
             String nombreCliente="";
             if (comprador.equals("Si") || comprador.equals("si")) {
-                dos.writeUTF("Introduce tu nombre: ");
+                dos.writeUTF("Introduce tu nombre y apellidos: ");
                 nombreCliente = dis.readUTF();
                 dos.writeUTF("Añadido");
                 listaCompradores.add(nombreCliente);
