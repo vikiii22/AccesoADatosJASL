@@ -11,38 +11,34 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class Servidor extends Thread{
+public class Servidor extends Thread {
     Socket socket;
     DataInputStream dis;
     DataOutputStream dos;
     static ArrayList<String> listaCompradores;
     static String compradores;
 
-    public Servidor(Socket socket){
-        this.socket=socket;
+    public Servidor(Socket socket) {
+        this.socket = socket;
     }
 
     @Override
     public void run() {
         try {
-            dis=new DataInputStream(socket.getInputStream());
-            dos=new DataOutputStream(socket.getOutputStream());
+            dis = new DataInputStream(socket.getInputStream());
+            dos = new DataOutputStream(socket.getOutputStream());
             dos.writeUTF("Desea comprar una entrada?");
 
-            String comprador=dis.readUTF();
-            if (comprador.equals("Si") || comprador.equals("si")){
+            String comprador = dis.readUTF();
+            if (comprador.equals("Si") || comprador.equals("si")) {
                 dos.writeUTF("Introduce tu nombre: ");
-                String nombreCliente=dis.readUTF();
-                listaCompradores.add(nombreCliente+"\n");
-                for (String s:listaCompradores){
-                    if (!s.equals(compradores)){
-                        compradores+=s;
-                    }else{
-                        System.out.println("");
-                    }
+                String nombreCliente = dis.readUTF();
+                listaCompradores.add(nombreCliente + "\n");
+                for (String s : listaCompradores) {
+                    compradores += s;
                 }
                 dos.writeUTF(compradores.toString());
-            }else{
+            } else {
                 dos.writeUTF(compradores.toString());
             }
             System.out.println(compradores);
@@ -52,12 +48,12 @@ public class Servidor extends Thread{
     }
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket=new ServerSocket();
-        Socket socket=null;
-        InetSocketAddress addr=new InetSocketAddress("localhost", 5566);
+        ServerSocket serverSocket = new ServerSocket();
+        Socket socket = null;
+        InetSocketAddress addr = new InetSocketAddress("localhost", 5566);
         serverSocket.bind(addr);
-        listaCompradores=new ArrayList<>();
-        compradores="";
+        listaCompradores = new ArrayList<>();
+        compradores = "";
         while (true) {
             try {
                 socket = serverSocket.accept();
