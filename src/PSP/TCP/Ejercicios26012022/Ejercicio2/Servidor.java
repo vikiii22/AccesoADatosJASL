@@ -30,17 +30,19 @@ public class Servidor extends Thread {
             dos.writeUTF("Desea comprar una entrada?");
 
             String comprador = dis.readUTF();
+            String nombreCliente="";
             if (comprador.equals("Si") || comprador.equals("si")) {
                 dos.writeUTF("Introduce tu nombre: ");
-                String nombreCliente = dis.readUTF();
-                listaCompradores.add(nombreCliente + "\n");
-                for (String s : listaCompradores) {
-                    compradores += s;
-                }
-                dos.writeUTF(compradores.toString());
+                nombreCliente = dis.readUTF();
+                dos.writeUTF("Añadido");
             } else {
                 dos.writeUTF(compradores.toString());
             }
+            listaCompradores.add(nombreCliente + "\n");
+            for (String s : listaCompradores) {
+                compradores += s;
+            }
+            dos.writeUTF(compradores);
             System.out.println(compradores);
         } catch (IOException e) {
             e.printStackTrace();
