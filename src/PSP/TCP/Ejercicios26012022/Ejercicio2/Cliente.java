@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.util.Locale;
 import java.util.Scanner;
 
+//Cliente
 public class Cliente {
     public static void main(String[] args) {
         while (true){

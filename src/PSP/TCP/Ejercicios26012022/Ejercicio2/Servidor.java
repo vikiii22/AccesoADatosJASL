@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
+//Servidor con Hilos
 public class Servidor extends Thread {
     Socket socket;
     DataInputStream dis;
