@@ -18,7 +18,6 @@ public class Servidor {
                 DataInputStream dis=new DataInputStream(socket.getInputStream());
                 String archivos="";
 
-                //dos.writeUTF("Hola desde el servidor");
                 File file=new File(".");
                 for (File f:file.listFiles()){
                     if (f.isFile()){
