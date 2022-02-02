@@ -18,8 +18,6 @@ public class Cliente2 {
                 System.out.println(dis.readUTF());
                 dos.writeUTF("Soy el cliente 2");
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
