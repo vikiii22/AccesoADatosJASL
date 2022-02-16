@@ -37,6 +37,15 @@ public class Cliente {
                         }
                         break;
                     case 2:
+                        System.out.println(dis.readUTF());
+                        sc.nextLine();
+                        dos.writeUTF(sc.nextLine());
+                        System.out.println(dis.readUTF());
+                        dos.writeUTF(sc.nextLine());
+                        System.out.println(dis.readUTF());
+                        dos.writeUTF(sc.nextLine());
+                        System.out.println(dis.readUTF());
+                        dos.writeInt(sc.nextInt());
                         break;
                 }
             }

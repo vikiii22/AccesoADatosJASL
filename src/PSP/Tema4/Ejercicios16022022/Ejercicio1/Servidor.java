@@ -55,15 +55,22 @@ public class Servidor {
                     }
                     break;
                 case 2:
-                    System.out.println("Introduce el nombre del contacto a modificar: ");
+                    dos.writeUTF("Introduce el nombre del contacto a modificar: ");
                     contactosTotales=listaContactos.size();
-                    dos.writeInt(contactosTotales);
+                    //dos.writeInt(contactosTotales);
+                    String nombreEditar="";
                     for (Contacto c:listaContactos) {
-                        String nombreEditar=c.getNombre();
+                        nombreEditar = c.getNombre();
+                        if (dis.readUTF().equals(nombreEditar)) {
+                            dos.writeUTF("Introduce el nuevo nombre");
+                            c.setNombre(dis.readUTF());
+                            dos.writeUTF("Introduce la nueva dirección");
+                            c.setDireccion(dis.readUTF());
+                            dos.writeUTF("Introduce el nuevo teléfono");
+                            c.setTelefono(dis.readInt());
+                        }
                     }
-
                     break;
-
             }
         }
     }
