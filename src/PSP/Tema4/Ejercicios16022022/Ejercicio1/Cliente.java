@@ -48,11 +48,6 @@ public class Cliente {
                         dos.writeInt(sc.nextInt());
                         break;
                     case 3:
-                        System.out.println(dis.readUTF());
-                        sc.nextLine();
-                        dos.writeUTF(sc.nextLine());
-                        break;
-                    case 4:
                         contactos=dis.readInt();
                         for (int i = 0; i < contactos; i++) {
                             System.out.println(dis.readUTF());
