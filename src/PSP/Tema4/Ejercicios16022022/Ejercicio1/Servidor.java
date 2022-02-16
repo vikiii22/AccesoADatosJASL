@@ -16,7 +16,7 @@ public class Servidor {
         InetSocketAddress addr=new InetSocketAddress("localhost", 6667);
         servidor.bind(addr);
 
-        Contacto contacto;
+        Contacto contacto = null;
         List<Contacto> listaContactos=new ArrayList<>();
         int elegido=0;
 
@@ -30,7 +30,8 @@ public class Servidor {
             dos.writeUTF("Elige una opción: \n" +
                     "1. Crear un contacto\n" +
                     "2. Modificar un contacto\n" +
-                    "3. Eliminar un contacto\n");
+                    "3. Eliminar un contacto\n" +
+                    "4. Ver contactos");
             elegido=dis.readInt();
             switch (elegido){
                 case 1:
@@ -61,15 +62,30 @@ public class Servidor {
                     String nombreEditar="";
                     for (Contacto c:listaContactos) {
                         nombreEditar = c.getNombre();
-                        if (dis.readUTF().equals(nombreEditar)) {
-                            dos.writeUTF("Introduce el nuevo nombre");
-                            c.setNombre(dis.readUTF());
-                            dos.writeUTF("Introduce la nueva dirección");
-                            c.setDireccion(dis.readUTF());
-                            dos.writeUTF("Introduce el nuevo teléfono");
-                            c.setTelefono(dis.readInt());
-                        }
                     }
+                    if (dis.readUTF().equals(nombreEditar)) {
+                        dos.writeUTF("Introduce el nuevo nombre");
+                        contacto.setNombre(dis.readUTF());
+                        dos.writeUTF("Introduce la nueva dirección");
+                        contacto.setDireccion(dis.readUTF());
+                        dos.writeUTF("Introduce el nuevo teléfono");
+                        contacto.setTelefono(dis.readInt());
+                    }
+                    break;
+                case 3:
+                    dos.writeUTF("Que contacto quiere eliminar?");
+                    String nombreBorrar=dis.readUTF();
+                    if (contacto.getNombre().equals(nombreBorrar))
+                    listaContactos.remove(contacto);
+                    break;
+                case 4:
+                    contactosTotales=listaContactos.size();
+                    dos.writeInt(contactosTotales);
+                    for (Contacto c:listaContactos) {
+                        dos.writeUTF(c.toString());
+                    }
+                    break;
+                default:
                     break;
             }
         }
